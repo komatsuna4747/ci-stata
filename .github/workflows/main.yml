@@ -1,0 +1,23 @@
+name: Test CI Stata
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Stata Action
+      id: ci-stata
+      uses: ledwindra@continuous-integration-stata@v1
+      with:
+        url: ${{ secrets.URL }}
+        version: ${{ secrets.VERSION }}
+        serial-number: ${{ secrets.SERIAL_NUMBER }}
+        code: ${{ secrets.CODE }}
+        authorization: ${{ secrets.AUTHORIZATION }}
+        first-name: ${{ secrets.FIRST_NAME }}
+        last-name: ${{ secrets.LAST_NAME }}
+        stata-edition: ${{ secrets.STATA_EDITION }}
