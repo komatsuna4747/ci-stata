@@ -1,3 +1,7 @@
+********************************************************************************
+* PURPOSE: Run a regression and export the table into LaTeX
+********************************************************************************
+
 clear
 
 // list installed packages
@@ -19,13 +23,24 @@ foreach i of local packages {
 sysuse auto, clear
 
 // run a regression model
-regress mpg foreign weight turn
+regress mpg foreign weight
 
 // export to a tex file
-outreg2 using regression-table.tex, replace cttop(full)
+outreg2 using tables/regression-table.tex, replace cttop(full)
 
 // list files in current directory
 pwd
 ls
+
+********************************************************************************
+* PURPOSE: Provide a do-file example to visualize data in a batch mode
+********************************************************************************
+
+clear
+
+set obs 1000
+generate x = rnormal(0, 1)
+histogram x, bin(30)
+graph export figures/hist.pdf
 	
 exit, clear
