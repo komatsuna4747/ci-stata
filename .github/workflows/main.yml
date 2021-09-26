@@ -36,13 +36,15 @@ jobs:
         first-name: ${{ secrets.FIRST_NAME }}
         last-name: ${{ secrets.LAST_NAME }}
         stata-edition: ${{ secrets.STATA_EDITION }}
-        
-    - name: Make a git commit
+  
+    - name: Checkout the current branch
       uses: actions/checkout@master
+
+    - name: Make a git commit
       env:
         EMAIL: ${{ secrets.EMAIL }}
         USERNAME: ${{ secrets.USERNAME }}
-        
+
       run: |
         git config --global user.email ${EMAIL}
         git config --global user.name ${USERNAME}
