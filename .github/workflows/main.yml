@@ -3,13 +3,6 @@ name: Test CI Stata
 on:
   workflow_dispatch:
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
-    branches:
-      - main
-      - develop
     paths:
       - "main.do"
       - "dofile/**"
