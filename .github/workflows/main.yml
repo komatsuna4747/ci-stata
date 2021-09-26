@@ -29,11 +29,6 @@ jobs:
         first-name: ${{ secrets.FIRST_NAME }}
         last-name: ${{ secrets.LAST_NAME }}
         stata-edition: ${{ secrets.STATA_EDITION }}
-  
-    - name: Checkout the current branch
-      uses: actions/checkout@master
-      with:
-        ref: ${{ github.ref }}
 
     - name: Make a git commit
       env:
@@ -44,10 +39,6 @@ jobs:
         git status
         git config --global user.email ${EMAIL}
         git config --global user.name ${USERNAME}
-        if [ -n "$(git status --porcelain)" ]; then
-           git add --all
-           git commit -m "Update tables and figures"
-           git push
-        else
-          echo "No changes"
-        fi
+        git add tables figures
+        git commit -m "Update tables and figures"
+        git push
