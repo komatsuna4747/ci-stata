@@ -6,10 +6,10 @@
 clear
 
 // 1. Regression table
-do do/regression_latex.do
+do dofile/regression_latex.do
 
 // 2. Data visualization
-do do/visualization.do
+do dofile/visualization.do
 
 clear
 exit
