@@ -2,7 +2,10 @@ name: Test CI Stata
 
 on:
   workflow_dispatch:
-  pull_request:
+  push:
+    branches-ignore:
+      - main
+      - develop
     paths:
       - "main.do"
       - "dofile/**"
@@ -29,9 +32,6 @@ jobs:
         first-name: ${{ secrets.FIRST_NAME }}
         last-name: ${{ secrets.LAST_NAME }}
         stata-edition: ${{ secrets.STATA_EDITION }}
-  
-    - name: Checkout the current branch
-      uses: actions/checkout@master
 
     - name: Make a git commit
       env:

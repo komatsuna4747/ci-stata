@@ -1,5 +1,5 @@
 ********************************************************************************
-* PURPOSE: Provide a do-file example to visualize data in a batch mode
+* PURPOSE: Provide a do-file example to visualize data in a batch mode :)
 ********************************************************************************
 
 clear
