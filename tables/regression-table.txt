@@ -3,15 +3,15 @@
 VARIABLES	mpg
 	
 foreign	-2.076*
-	(1.222)
+	(1.122)
 weight	-0.00560***
-	(0.000949)
+	(0.00100)
 turn	-0.235
-	(0.152)
+	(0.184)
 Constant	48.13***
-	(4.315)
+	(5.482)
 	
 Observations	74
 R-squared	0.670
-Robust standard errors in parentheses	
+Standard errors in parentheses	
 *** p<0.01, ** p<0.05, * p<0.1	
