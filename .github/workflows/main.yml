@@ -26,7 +26,7 @@ jobs:
       
     - name: Stata Action
       id: ci-stata
-      uses: ledwindra/continuous-integration-stata@v1
+      uses: ledwindra/continuous-integration-stata@main
       with:
         url: ${{ secrets.URL }}
         version: ${{ secrets.VERSION }}
