@@ -9,7 +9,10 @@ jobs:
     steps:
     - name: Set up Git repository
       uses: actions/checkout@v2
-    
+      
+    - name: Make directories for tables and figures
+      run: mkdir -p tables figures
+      
     - name: Stata Action
       id: ci-stata
       uses: ledwindra/continuous-integration-stata@v1
@@ -22,3 +25,16 @@ jobs:
         first-name: ${{ secrets.FIRST_NAME }}
         last-name: ${{ secrets.LAST_NAME }}
         stata-edition: ${{ secrets.STATA_EDITION }}
+        
+    - name: Make a git commit
+      env:
+        EMAIL: ${{ secrets.EMAIL }}
+        USERNAME: ${{ secrets.USERNAME }}
+        
+      run: |
+        git status
+        git config --global user.email ${EMAIL}
+        git config --global user.name ${USERNAME}
+        git add tables figures
+        git commit --allow-empty -m "Update tables and figures"
+        git push
