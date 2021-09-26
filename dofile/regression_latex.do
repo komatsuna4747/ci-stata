@@ -21,7 +21,7 @@ foreach i of local packages {
 sysuse auto, clear
 
 // run a regression model
-regress mpg foreign weight turn
+regress mpg foreign weight
 
 // export to a tex file
 outreg2 using tables/regression-table.tex, replace cttop(full)
