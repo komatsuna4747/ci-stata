@@ -48,7 +48,7 @@ jobs:
         if [ -n "$(git status --porcelain)" ]; then
            git add --all
            git commit -m "Update tables and figures"
-           git push
+           git push origin HEAD
         else
           echo "No changes"
         fi
