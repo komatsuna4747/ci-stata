@@ -7,6 +7,6 @@ clear
 set obs 1000
 generate x = rnormal(0, 1)
 histogram x, bin(30)
-graph export figures/hist.pdf
+graph export figures/hist.pdf, replace
 	
 exit, clear
