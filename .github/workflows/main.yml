@@ -36,6 +36,7 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
 
       run: |
+        git branch -a
         git status
         git config --global user.email ${EMAIL}
         git config --global user.name ${USERNAME}
