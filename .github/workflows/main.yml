@@ -2,7 +2,10 @@ name: Test CI Stata
 
 on:
   workflow_dispatch:
-  pull_request:
+  push:
+    branches-ignore:
+      - main
+      - develop
     paths:
       - "main.do"
       - "dofile/**"
@@ -36,10 +39,13 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
 
       run: |
-        git branch -a
         git status
         git config --global user.email ${EMAIL}
         git config --global user.name ${USERNAME}
-        git add tables figures
-        git commit -m "Update tables and figures"
-        git push
+        if [ -n "$(git status --porcelain)" ]; then
+           git add --all
+           git commit -m "Update tables and figures"
+           git push
+        else
+          echo "No changes"
+        fi
