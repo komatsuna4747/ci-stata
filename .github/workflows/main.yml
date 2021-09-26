@@ -38,7 +38,7 @@ jobs:
         stata-edition: ${{ secrets.STATA_EDITION }}
         
     - name: Make a git commit
-    - uses: actions/checkout@master
+      uses: actions/checkout@master
       env:
         EMAIL: ${{ secrets.EMAIL }}
         USERNAME: ${{ secrets.USERNAME }}
